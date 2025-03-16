@@ -1,10 +1,10 @@
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import app, db, login_manager
-from models import User
-from forms import SignupForm, LoginForm
+from models import User, Post
+from forms import SignupForm, LoginForm, BlogPostForm
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -54,7 +54,8 @@ def login():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html', username=current_user.username)
+    user_posts = Post.query.filter_by(author_id=current_user.id).all()
+    return render_template('dashboard.html', username=current_user.username, posts=user_posts)
 
 # logout
 @app.route('/logout')
@@ -66,37 +67,98 @@ def logout():
 
 
 
-
-# navigation page routes
+# site navigation page routes
 @app.route("/")
 def index():
-    return render_template("index.html")
+    posts = Post.query.all()
+    # user_posts = Post.query.filter_by(author_id=current_user.id).all()
+    return render_template('index.html', posts=posts)
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
-@app.route("/post")
-def post():
-    return render_template("post.html")
-
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
 
+@app.route('/post/<int:post_id>')
+def view_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    return render_template('blogpost.html', post=post)
+
 
 
 # create post
-@app.route("/create")
-def create():
-    return render_template("create.html")
+@app.route('/create_post', methods=['GET', 'POST'])
+@login_required
+def create_post():
+    form = BlogPostForm()
+    if form.validate_on_submit():
+        new_post = Post(
+            title=form.title.data,
+            subtitle=form.subtitle.data,
+            content=form.content.data,
+            author_id=current_user.id,  # Auto-filling the author ID
+            author=current_user.username  # Auto-filling the username
+        )
+        db.session.add(new_post)
+        db.session.commit()
+        flash('Your blog post has been created!', 'success')
+        return redirect(url_for('dashboard'))  # Redirect to dashboard after posting
 
-@app.route("/createpost", methods=['POST'])
-def createpost():
-    title = request.form['title']
-    subtitle = request.form['subtitle']
-    author = request.form['author']
-    content = request.form['content']
+    return render_template('create_post.html', form=form)
 
-    #blogpost = Post(title=title, subtitle=subtitle, author=author, content=content)
-    return redirect(url_for('index'))
+# view posts
+@app.route('/posts')
+@login_required
+def view_all_posts():
+    posts = Post.query.all()
+    # user_posts = Post.query.filter_by(author_id=current_user.id).all()
+    return render_template('view_posts.html', posts=posts)
+   
+
+# update post
+@app.route('/update_post/<int:post_id>', methods=['GET', 'POST'])
+@login_required
+def update_post(post_id):
+    post = Post.query.get_or_404(post_id)
+
+    # Ensure only the author can update
+    if post.author_id != current_user.id:
+        flash("You are not authorized to update this post!", "danger")
+        return redirect(url_for('view_all_posts'))
+
+    form = BlogPostForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        post.title = form.title.data
+        post.subtitle = form.subtitle.data
+        post.content = form.content.data
+        db.session.commit()
+        flash("Post updated successfully!", "success")
+        return redirect(url_for('view_all_posts'))
+
+    # Pre-fill the form with the existing data
+    form.title.data = post.title
+    form.subtitle.data = post.subtitle
+    form.content.data = post.content
+
+    return render_template('update_post.html', form=form, post=post)
+
+
+
+# delete post
+@app.route('/delete_post/<int:post_id>', methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+
+    # Ensure only the author can delete
+    if post.author_id != current_user.id:
+        flash("You are not authorized to delete this post!", "danger")
+        return redirect(url_for('view_all_posts'))
+
+    db.session.delete(post)
+    db.session.commit()
+    flash("Post deleted successfully!", "success")
+    return redirect(url_for('view_all_posts'))

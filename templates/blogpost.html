@@ -3,12 +3,18 @@
 {% block content %} 
 
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/post-bg.jpg') }}'); padding: 70px 0;">
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/post-bg.jpg') }}')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Welcome, {{ username }}!</h1>
+                            <h1>{{ post.title }}</h1>
+                            <h2 class="subheading">{{ post.subtitle }}</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#">{{ post.author }}</a>
+                                on {{ post.date_posted.strftime('%#d %B %Y, %#I:%M %p') }}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -19,16 +25,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2>Welcome, {{ username }}</h2>
-                        <ul class="mt-5">
-                            <li><a href="{{ url_for('create_post') }}">Create Post</a> > </li>
-                            <br>
-                            <li><a href="{{ url_for('view_all_posts') }}">View All Your Posts</a> > </li>
-                            <li class="mt-5"><a href="{{ url_for('logout') }}">Logout</a></li>
-                        </ul>
-                        
-                        <br>
-                       
+                        <p>{{ post.content }}</p>
                     </div>
                 </div>
             </div>
