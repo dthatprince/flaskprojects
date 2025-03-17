@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from sqlalchemy.orm import DeclarativeBase
+from flask_migrate import Migrate
 
 # Define the Base class
 class Base(DeclarativeBase):
@@ -29,6 +30,8 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Prevent CSRF attacks
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)  # <-- Bind the database instance to the Flask app
 
+# Initialize Flask-Migrate AFTER db.init_app(app)
+migrate = Migrate(app, db)
 
 # login manager
 login_manager = LoginManager()
