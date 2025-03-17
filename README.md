@@ -63,7 +63,7 @@ flask db upgrade
 
 ### 5. Run the Application
 ```sh
-python app.py
+flask --app app --debug run
 ```
 
 The application will run at **`http://127.0.0.1:5000/`**
