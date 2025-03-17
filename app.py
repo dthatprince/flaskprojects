@@ -30,7 +30,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Prevent CSRF attacks
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)  # <-- Bind the database instance to the Flask app
 
-# Initialize Flask-Migrate AFTER db.init_app(app)
+# Initialize Flask-Migrate 
 migrate = Migrate(app, db)
 
 # login manager
