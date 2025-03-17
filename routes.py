@@ -10,6 +10,7 @@ from forms import SignupForm, LoginForm, BlogPostForm
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+# signup
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
@@ -17,21 +18,22 @@ def signup():
         username = form.username.data
         email = form.email.data
         password = form.password.data
+        
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
-
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
             flash('Email already exists!', 'danger')
             return redirect(url_for('signup'))
-
+        
         new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         flash('Account created! Please login.', 'success')
         return redirect(url_for('login'))
-
+    
     return render_template('signup.html', form=form)
 
+# login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
