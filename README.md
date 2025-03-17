@@ -38,8 +38,8 @@ This is a **Flask-based Blog Application** that allows users to **create, read, 
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/yourusername/flask-blog.git
-cd flask-blog
+git clone https://github.com/dthatprince/flaskproject.git
+cd flaskproject
 ```
 
 ### 2. Create & Activate Virtual Environment
