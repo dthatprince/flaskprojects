@@ -5,6 +5,7 @@
 This is a **Flask-based Blog Application** that allows users to **create, read, update, and delete blog posts**. It includes user authentication, session management, and access control using **Flask-Login, Flask-WTF, and SQLAlchemy**.
 
 Template from the [Start Bootstrap Clean Blog page](https://startbootstrap.com/theme/clean-blog).
+
 ---
 
 ## Features
