@@ -56,6 +56,13 @@ pip install -r requirements.txt
 
 ### 4. Run the Application
 ```sh
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
+```
+
+### 5. Run the Application
+```sh
 python app.py
 ```
 
