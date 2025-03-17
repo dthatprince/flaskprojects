@@ -38,8 +38,8 @@ This is a **Flask-based Blog Application** that allows users to **create, read, 
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/yourusername/flask-blog.git
-cd flask-blog
+git clone https://github.com/dthatprince/flaskproject.git
+cd flaskproject
 ```
 
 ### 2. Create & Activate Virtual Environment
@@ -88,7 +88,7 @@ The application will run at **`http://127.0.0.1:5000/`**
 | `/logout`           | `GET`       | User logout                        |
 | `/dashboard`        | `GET`       | User dashboard (Protected)         |
 | `/create_post`      | `GET, POST` | Create a new blog post (Protected) |
-| `/posts`            | `GET`       | View all blog posts                |
+| `/posts`            | `GET`       | View all blog posts (Protected)    |
 | `/post/<id>`        | `GET`       | View a specific blog post          |
 | `/update_post/<id>` | `GET, POST` | Edit a blog post (Protected)       |
 | `/delete_post/<id>` | `POST`      | Delete a blog post (Protected)     |
