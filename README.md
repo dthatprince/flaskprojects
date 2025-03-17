@@ -114,4 +114,4 @@ This project is open-source under the **MIT License**.
 ## Author
 
 **Your Name**  
-[GitHub](https://github.com/yourusername) | [LinkedIn](https://linkedin.com/in/yourprofile)
+[GitHub](https://github.com/dthatprince) 
