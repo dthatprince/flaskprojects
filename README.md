@@ -91,7 +91,8 @@ The application will run at **`http://127.0.0.1:5000/`**
 
 ---
 
-## Routes & Endpoints (Basic) : [https://github.com/dthatprince/flaskprojects/flask-blog-project]
+## Routes & Endpoints (Basic) : 
+[https://github.com/dthatprince/flaskprojects/flask-blog-project]
 
 | Route               | Method      | Description                        |
 | ------------------- | ----------- | ---------------------------------- |
@@ -108,7 +109,8 @@ The application will run at **`http://127.0.0.1:5000/`**
 | `/contact`          | `GET`       | Contact page                       |
 
 
-## Routes & Endpoints (Blueprints) : [https://github.com/dthatprince/flaskprojects/flask-blog-blueprints]
+## Routes & Endpoints (Blueprints) : 
+[https://github.com/dthatprince/flaskprojects/flask-blog-blueprints]
 
 | Route               | Method      | Description                        |
 | ------------------- | ----------- | ---------------------------------- |
