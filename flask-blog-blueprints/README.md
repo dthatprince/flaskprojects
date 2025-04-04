@@ -1,4 +1,4 @@
-# Flask Blog Application
+# Flask Blog Application (Blueprints Implemented)
 
 ## Overview
 
@@ -75,8 +75,8 @@ The application will run at **`http://127.0.0.1:5000/`**
 ## Usage
 
 ### 1. Signup & Login
-- Visit `/signup` to **register** a new account.
-- Visit `/login` to **log in**.
+- Visit `/auth/signup` to **register** a new account.
+- Visit `/auth/login` to **log in**.
 
 ### 2. Create & Manage Blog Posts
 - Once logged in, go to `/create_post` to **add a blog post**.
@@ -92,15 +92,15 @@ The application will run at **`http://127.0.0.1:5000/`**
 
 | Route               | Method      | Description                        |
 | ------------------- | ----------- | ---------------------------------- |
-| `/signup`           | `GET, POST` | User registration                  |
-| `/login`            | `GET, POST` | User authentication                |
-| `/logout`           | `GET`       | User logout                        |
+| `/auth/signup`      | `GET, POST` | User registration                  |
+| `/auth/login`       | `GET, POST` | User authentication                |
+| `/auth/logout`      | `GET`       | User logout                        |
 | `/dashboard`        | `GET`       | User dashboard (Protected)         |
-| `/create_post`      | `GET, POST` | Create a new blog post (Protected) |
-| `/posts`            | `GET`       | View all blog posts (Protected)    |
-| `/post/<id>`        | `GET`       | View a specific blog post          |
-| `/update_post/<id>` | `GET, POST` | Edit a blog post (Protected)       |
-| `/delete_post/<id>` | `POST`      | Delete a blog post (Protected)     |
+| `/blog/create_post`      | `GET, POST` | Create a new blog post (Protected) |
+| `/blog/posts`            | `GET`       | View all blog posts (Protected)    |
+| `/blog/post/<id>`        | `GET`       | View a specific blog post          |
+| `/blog/update_post/<id>` | `GET, POST` | Edit a blog post (Protected)       |
+| `/blog/delete_post/<id>` | `POST`      | Delete a blog post (Protected)     |
 | `/about`            | `GET`       | About page                         |
 | `/contact`          | `GET`       | Contact page                       |
 
