@@ -1,6 +1,6 @@
 # Flask Blog Application
-1. Basic (Monolithic) Flask Implementation: [https://github.com/dthatprince/flaskprojects/flask-blog-project]
-2. Modular Flask with Blueprints: [https://github.com/dthatprince/flaskprojects/flask-blog-blueprints]
+1. Basic (Monolithic) Flask Implementation: https://github.com/dthatprince/flaskprojects/flask-blog-project
+2. Modular Flask with Blueprints: https://github.com/dthatprince/flaskprojects/flask-blog-blueprints
 
 
 ## Overview
@@ -92,7 +92,7 @@ The application will run at **`http://127.0.0.1:5000/`**
 ---
 
 ## Routes & Endpoints (Basic) : 
-[https://github.com/dthatprince/flaskprojects/flask-blog-project]
+https://github.com/dthatprince/flaskprojects/flask-blog-project
 
 | Route               | Method      | Description                        |
 | ------------------- | ----------- | ---------------------------------- |
@@ -110,7 +110,7 @@ The application will run at **`http://127.0.0.1:5000/`**
 
 
 ## Routes & Endpoints (Blueprints) : 
-[https://github.com/dthatprince/flaskprojects/flask-blog-blueprints]
+https://github.com/dthatprince/flaskprojects/flask-blog-blueprints
 
 | Route               | Method      | Description                        |
 | ------------------- | ----------- | ---------------------------------- |
