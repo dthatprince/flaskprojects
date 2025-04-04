@@ -9,6 +9,10 @@ This is a **Flask-based Blog Application** that allows users to **create, read, 
 
 Template from the [Start Bootstrap Clean Blog page](https://startbootstrap.com/theme/clean-blog).
 
+
+## Demo Video
+[![Watch the Demo](https://img.youtube.com/vi/m1UpSvNe7C4/0.jpg)](https://youtu.be/m1UpSvNe7C4)
+
 ---
 
 ## Features
