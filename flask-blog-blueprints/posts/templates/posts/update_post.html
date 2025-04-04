@@ -1,0 +1,54 @@
+{% extends "index.html" %}
+
+{% block content %} 
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/contact-bg.jpg') }}'); padding: 70px 0;">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Update Post</h1>
+                            <span class="subheading">You can update a blog post here.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <a href="{{ url_for('posts.view_all_posts') }}"> < Back to Posts</a>
+                        <br>
+                        <div class="my-5">
+                            <form id="updateForm" name="updateForm" method="POST">
+                                {{ form.hidden_tag() }}
+                                <div class="form-floating">
+                                    {{ form.title(class_="form-control") }}
+                                    <label for="title">{{ form.title.label }}</label>
+                                </div>
+                                <div class="form-floating">
+                                    {{ form.subtitle(class_="form-control") }}
+                                    <label for="subtitle">{{ form.subtitle.label }}</label>
+                                </div>
+                                <div class="form-floating">
+                                    {{ form.content(class_="form-control", style="height: 12rem;") }}
+                                    <label for="content">{{ form.content.label }}</label>
+                                </div>
+                                <br />
+                                
+                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                <!-- Submit Button-->
+                                {{ form.submit(class_="btn btn-primary text-uppercase enabled") }}
+                            </form>
+                            <br><br>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+{% endblock %}
