@@ -91,7 +91,24 @@ The application will run at **`http://127.0.0.1:5000/`**
 
 ---
 
-## Routes & Endpoints (Blueprints)
+## Routes & Endpoints (Basic) : [https://github.com/dthatprince/flaskprojects/flask-blog-project]
+
+| Route               | Method      | Description                        |
+| ------------------- | ----------- | ---------------------------------- |
+| `/signup`           | `GET, POST` | User registration                  |
+| `/login`            | `GET, POST` | User authentication                |
+| `/logout`           | `GET`       | User logout                        |
+| `/dashboard`        | `GET`       | User dashboard (Protected)         |
+| `/create_post`      | `GET, POST` | Create a new blog post (Protected) |
+| `/posts`            | `GET`       | View all blog posts (Protected)    |
+| `/post/<id>`        | `GET`       | View a specific blog post          |
+| `/update_post/<id>` | `GET, POST` | Edit a blog post (Protected)       |
+| `/delete_post/<id>` | `POST`      | Delete a blog post (Protected)     |
+| `/about`            | `GET`       | About page                         |
+| `/contact`          | `GET`       | Contact page                       |
+
+
+## Routes & Endpoints (Blueprints) : [https://github.com/dthatprince/flaskprojects/flask-blog-blueprints]
 
 | Route               | Method      | Description                        |
 | ------------------- | ----------- | ---------------------------------- |
