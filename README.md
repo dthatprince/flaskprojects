@@ -47,8 +47,8 @@ Template from the [Start Bootstrap Clean Blog page](https://startbootstrap.com/t
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/dthatprince/flaskproject.git
-cd flaskproject
+git clone https://github.com/dthatprince/flaskprojects.git
+cd flaskprojects
 ```
 
 ### 2. Create & Activate Virtual Environment
