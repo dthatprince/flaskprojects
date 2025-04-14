@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from sites.sites_blueprint import sites_blueprint
 from auth.auth_blueprint import auth_blueprint, User
 from posts.posts_blueprint import posts_blueprint
-
+from error_handler.error_handler_blueprint import error_handler_blueprint
 
 
 # create an instance of the Flask class
@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.register_blueprint(sites_blueprint, url_prefix='/')
 app.register_blueprint(auth_blueprint, url_prefix='/auth')
 app.register_blueprint(posts_blueprint, url_prefix='/blog')
-#app.register_blueprint(posts_blueprint, url_prefix='/blog')
+app.register_blueprint(error_handler_blueprint)
 
 # secret key
 app.config['SECRET_KEY'] = 'e5b6c9d4f2c7a91c8b2f5a1e8c6d3f7u9a0b4c2d5e6f7a8b1c2d3e4f5g6h7i8j'
